@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ArrayOfEngine xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Engine>
+    <Type>DT</Type>
+    <SerialNumber>1734</SerialNumber>
+    <PowerInHP>1820</PowerInHP>
+    <VolumeDmCubed>40</VolumeDmCubed>
+  </Engine>
+  <Engine>
+    <Type>Gas</Type>
+    <SerialNumber>7953</SerialNumber>
+    <PowerInHP>2500</PowerInHP>
+    <VolumeDmCubed>70</VolumeDmCubed>
+  </Engine>
+</ArrayOfEngine>

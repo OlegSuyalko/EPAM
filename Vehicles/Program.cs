@@ -1,9 +1,9 @@
 ﻿using System;
 using VehiclesClassSystem;
 using VehiclesClassSystem.VehicleParts;
+using System.Collections.Generic;
 
-
-namespace Vehicles
+namespace VehicleFleet
 {
     class Program
     {
@@ -34,13 +34,17 @@ namespace Vehicles
             };
 
             Car car = new Car(engines[0], rollingChasses[0], transmissions[0], false);
-            Console.WriteLine($"----------\nCar:\n----------\n{car}");
             Truck truck = new Truck(engines[1], rollingChasses[1], transmissions[1], "Furnitura");
-            Console.WriteLine($"----------\nTruck:\n----------\n{truck}");
             Bus bus = new Bus(engines[2], rollingChasses[2], transmissions[2], 40);
-            Console.WriteLine($"----------\nBus:\n----------\n{bus}");
             Scooter scooter = new Scooter(engines[3], rollingChasses[3], transmissions[3], true);
-            Console.WriteLine($"----------\nScooter:\n----------\n{scooter}");
+
+            VehicleFleet park = new VehicleFleet(new List<Vehicle> { car, truck, bus, scooter });
+            Console.Write(park.ToString());
+
+            Serializer<VehicleFleet>.Serialize("../../../XMLFiles/CollectionOfAllVehicles.xml", park);
+            Serializer<Vehicle>.Serialize("../../../XMLFiles/VehiclesWithEngineVolumeGreaterThan1.5.xml", park.GetVehiclesWithEngineVolumeGreaterThan(1.5));
+            Serializer<Engine>.Serialize("../../../XMLFiles/EnginesOfBussesAndTrucks.xml", park.GetEnginesOfBussesAndTrucks());
+            Serializer<Vehicle>.Serialize("../../../XMLFiles/VehiclesGroupedByTransmission.xml", park.GroupByTransmission());
         }
     }
 }

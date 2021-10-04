@@ -3,18 +3,13 @@ using VehiclesClassSystem.VehicleParts;
 
 namespace VehiclesClassSystem
 {
+    [Serializable]
     public class Bus : Vehicle
     {
+        public int PeopleCapacity { get; set; }
+        public Bus() { }
         public Bus(Engine engine, RollingChassis rollingChassis, Transmission transmission, int peopleCapacity)
-        {
-            this.Engine = engine;
-            this.RollingChassis = rollingChassis;
-            this.Transmission = transmission;
-            this.PeopleCapacity = peopleCapacity;
-        }
-
-        public int PeopleCapacity { get; }
-
+            : base(engine, rollingChassis, transmission) => this.PeopleCapacity = peopleCapacity;
         public override string ToString()
             => base.ToString() +
             "\nPeople capacity:" +

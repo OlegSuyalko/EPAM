@@ -3,21 +3,16 @@ using VehiclesClassSystem.VehicleParts;
 
 namespace VehiclesClassSystem
 {
+    [Serializable]
     public class Car : Vehicle
     {
+        public bool IsSportCar { get; set; }
+        public Car() { }
         public Car(Engine engine, RollingChassis rollingChassis, Transmission transmission, bool isSportCar)
-        {
-            this.Engine = engine;
-            this.RollingChassis = rollingChassis;
-            this.Transmission = transmission;
-            this.IsSportcar = isSportCar;
-        }
-
-        public bool IsSportcar { get; }
-
+        : base(engine, rollingChassis, transmission) => this.IsSportCar = isSportCar;
         public override string ToString()
             => base.ToString() +
-            "\nIs sportcar:" +
-            $"\n{(this.IsSportcar ? "yes" : "no")}.";
+            "\nIs SportCar:" +
+            $"\n{(this.IsSportCar ? "yes" : "no")}.";
     }
 }
